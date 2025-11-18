@@ -1,23 +1,24 @@
 /* ================================
    Base & Theme
+   (Flat colours, no gradients)
 =================================== */
 
 :root {
-    --bg: #0f172a;
+    --bg: #0b1120;
     --bg-elevated: #111827;
     --bg-elevated-soft: #020617;
     --bg-card: #020617;
     --bg-sidebar: #020617;
-    --border-subtle: rgba(148, 163, 184, 0.25);
+    --border-subtle: rgba(148, 163, 184, 0.35);
     --accent: #38bdf8;
     --accent-soft: rgba(56, 189, 248, 0.15);
     --accent-strong: #0ea5e9;
-    --accent-contrast: #0b1120;
+    --accent-contrast: #020617;
     --text: #e5e7eb;
     --text-soft: #9ca3af;
     --text-softer: #6b7280;
     --danger: #f97373;
-    --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+    --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.7);
     --radius-lg: 18px;
     --radius-xl: 24px;
     --radius-full: 999px;
@@ -29,15 +30,15 @@ body.theme-light {
     --bg-elevated-soft: #e5e7eb;
     --bg-card: #ffffff;
     --bg-sidebar: #f9fafb;
-    --border-subtle: rgba(148, 163, 184, 0.4);
+    --border-subtle: rgba(148, 163, 184, 0.5);
     --accent: #2563eb;
-    --accent-soft: rgba(37, 99, 235, 0.1);
+    --accent-soft: rgba(37, 99, 235, 0.08);
     --accent-strong: #1d4ed8;
     --accent-contrast: #eff6ff;
     --text: #111827;
     --text-soft: #4b5563;
     --text-softer: #6b7280;
-    --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
+    --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.14);
 }
 
 /* ================================
@@ -50,14 +51,15 @@ body.theme-light {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
 
 body {
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #0b1120, #020617 45%, #000 100%);
+    background-color: var(--bg);
     color: var(--text);
     min-height: 100vh;
 }
@@ -84,9 +86,8 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 14px 20px;
-    background: linear-gradient(to right, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.95));
-    border-bottom: 1px solid rgba(148, 163, 184, 0.4);
-    backdrop-filter: blur(18px);
+    background-color: var(--bg-elevated);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .header-left {
@@ -99,14 +100,14 @@ body {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-full);
-    background: radial-gradient(circle at 30% 20%, #38bdf8, #0f766e);
+    background-color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ecfeff;
     font-weight: 700;
     font-size: 20px;
-    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.55);
+    box-shadow: 0 8px 18px rgba(56, 189, 248, 0.45);
 }
 
 .app-title-group {
@@ -137,8 +138,8 @@ body {
 =================================== */
 
 .icon-button {
-    border: 1px solid rgba(148, 163, 184, 0.4);
-    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-subtle);
+    background-color: var(--bg-elevated-soft);
     border-radius: var(--radius-full);
     padding: 7px 11px;
     color: var(--text-soft);
@@ -148,21 +149,21 @@ body {
     align-items: center;
     gap: 6px;
     transition:
-        background 0.18s ease,
+        background-color 0.18s ease,
         border-color 0.18s ease,
         transform 0.08s ease,
         box-shadow 0.18s ease;
 }
 
 body.theme-light .icon-button {
-    background: #f9fafb;
+    background-color: #f9fafb;
 }
 
 .icon-button:hover {
-    background: rgba(15, 23, 42, 0.95);
+    background-color: var(--bg-elevated);
     border-color: var(--accent);
     color: var(--text);
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.5);
     transform: translateY(-1px);
 }
 
@@ -171,12 +172,9 @@ body.theme-light .icon-button {
     box-shadow: none;
 }
 
-/* Keep existing class name for JS / HTML */
 .sidebar-toggle {
     font-size: 18px;
 }
-
-/* Primary & secondary buttons */
 
 .primary-button {
     border: none;
@@ -185,9 +183,9 @@ body.theme-light .icon-button {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    background-color: var(--accent);
     color: white;
-    box-shadow: 0 16px 35px rgba(56, 189, 248, 0.5);
+    box-shadow: 0 14px 30px rgba(56, 189, 248, 0.45);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -200,19 +198,19 @@ body.theme-light .icon-button {
 .primary-button:hover {
     filter: brightness(1.05);
     transform: translateY(-1px);
-    box-shadow: 0 18px 40px rgba(56, 189, 248, 0.55);
+    box-shadow: 0 16px 34px rgba(56, 189, 248, 0.5);
 }
 
 .primary-button:active {
     transform: translateY(0);
-    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 24px rgba(56, 189, 248, 0.4);
 }
 
 .secondary-button {
     border-radius: var(--radius-full);
     border: 1px solid var(--border-subtle);
     padding: 9px 18px;
-    background: rgba(15, 23, 42, 0.75);
+    background-color: var(--bg-elevated-soft);
     color: var(--text);
     cursor: pointer;
     font-size: 14px;
@@ -221,20 +219,20 @@ body.theme-light .icon-button {
     align-items: center;
     gap: 6px;
     transition:
-        background 0.18s ease,
+        background-color 0.18s ease,
         border-color 0.18s ease,
         transform 0.08s ease,
         box-shadow 0.18s ease;
 }
 
 body.theme-light .secondary-button {
-    background: #f9fafb;
+    background-color: #f9fafb;
 }
 
 .secondary-button:hover {
-    background: rgba(15, 23, 42, 0.95);
+    background-color: var(--bg-elevated);
     border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.6);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.55);
     transform: translateY(-1px);
 }
 
@@ -245,9 +243,9 @@ body.theme-light .secondary-button {
 
 .ghost-button {
     border-radius: var(--radius-full);
-    border: 1px dashed rgba(148, 163, 184, 0.6);
+    border: 1px dashed var(--border-subtle);
     padding: 9px 18px;
-    background: transparent;
+    background-color: transparent;
     color: var(--text-soft);
     cursor: pointer;
     font-size: 13px;
@@ -256,13 +254,13 @@ body.theme-light .secondary-button {
     align-items: center;
     gap: 6px;
     transition:
-        background 0.18s ease,
+        background-color 0.18s ease,
         border-color 0.18s ease,
         color 0.18s ease;
 }
 
 .ghost-button:hover {
-    background: var(--accent-soft);
+    background-color: var(--accent-soft);
     border-color: var(--accent);
     color: var(--accent-strong);
 }
@@ -286,10 +284,10 @@ body.theme-light .secondary-button {
 .card-panel {
     width: 100%;
     max-width: 880px;
-    background: radial-gradient(circle at top left, var(--accent-soft), rgba(15, 23, 42, 0.96));
-    border-radius: 26px;
+    background-color: var(--bg-elevated);
+    border-radius: 24px;
     padding: 20px 20px 22px;
-    border: 1px solid rgba(148, 163, 184, 0.4);
+    border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-soft);
     display: flex;
     flex-direction: column;
@@ -299,16 +297,7 @@ body.theme-light .secondary-button {
 }
 
 body.theme-light .card-panel {
-    background: linear-gradient(135deg, #ffffff, #e5f0ff);
-}
-
-.card-panel::before {
-    content: "";
-    position: absolute;
-    inset: -80px -80px auto auto;
-    background: radial-gradient(circle at top, rgba(56, 189, 248, 0.2), transparent 60%);
-    opacity: 0.6;
-    pointer-events: none;
+    background-color: var(--bg-card);
 }
 
 .card-panel-header {
@@ -349,12 +338,12 @@ body.theme-light .card-panel {
     color: var(--text-soft);
     padding: 4px 8px;
     border-radius: var(--radius-full);
-    background: rgba(15, 23, 42, 0.65);
-    border: 1px solid rgba(148, 163, 184, 0.4);
+    background-color: var(--bg-elevated-soft);
+    border: 1px solid var(--border-subtle);
 }
 
 body.theme-light .toggle-option {
-    background: rgba(255, 255, 255, 0.8);
+    background-color: #ffffff;
 }
 
 /* Flashcards */
@@ -370,11 +359,11 @@ body.theme-light .toggle-option {
 
 .flashcard {
     position: relative;
-    border-radius: 22px;
+    border-radius: 20px;
     padding: 18px 18px;
-    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), var(--bg-card));
-    border: 1px solid rgba(148, 163, 184, 0.55);
-    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.8);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.75);
     color: var(--text);
     font-size: 16px;
     font-weight: 600;
@@ -388,23 +377,23 @@ body.theme-light .toggle-option {
         transform 0.09s ease,
         box-shadow 0.18s ease,
         border-color 0.18s ease,
-        background 0.18s ease;
+        background-color 0.18s ease;
 }
 
 body.theme-light .flashcard {
-    background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), #ffffff);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    background-color: #ffffff;
+    box-shadow: 0 14px 26px rgba(15, 23, 42, 0.12);
 }
 
 .flashcard:hover {
     transform: translateY(-1px) scale(1.01);
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.8);
     border-color: var(--accent);
 }
 
 .flashcard:active {
     transform: translateY(0) scale(0.995);
-    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.6);
 }
 
 .flashcard:focus-visible {
@@ -451,16 +440,15 @@ body.theme-light .flashcard {
 }
 
 #sidebar.open {
-    /* Preserve original .open hook for JS */
     transform: translateX(0%);
     pointer-events: auto;
 }
 
 .sidebar-inner {
     height: 100%;
-    background: var(--bg-sidebar);
+    background-color: var(--bg-sidebar);
     border-left: 1px solid var(--border-subtle);
-    box-shadow: -18px 0 40px rgba(15, 23, 42, 0.8);
+    box-shadow: -16px 0 30px rgba(15, 23, 42, 0.8);
     padding: 16px 16px 22px;
     display: flex;
     flex-direction: column;
@@ -474,7 +462,7 @@ body.theme-light .flashcard {
     justify-content: space-between;
     gap: 12px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .sidebar-header h2 {
@@ -526,17 +514,17 @@ body.theme-light .flashcard {
 
 .category-container,
 .function-container {
-    border: 1px solid rgba(148, 163, 184, 0.35);
+    border: 1px solid var(--border-subtle);
     margin: 5px 0;
     padding: 6px 6px 8px;
     text-align: left;
-    background: rgba(15, 23, 42, 0.85);
+    background-color: var(--bg-elevated-soft);
     border-radius: 10px;
 }
 
 body.theme-light .category-container,
 body.theme-light .function-container {
-    background: #f9fafb;
+    background-color: #f9fafb;
 }
 
 .category-title,
@@ -545,7 +533,7 @@ body.theme-light .function-container {
     display: flex;
     align-items: center;
     padding: 6px 8px;
-    background-color: rgba(15, 23, 42, 0.9);
+    background-color: var(--bg-elevated-soft);
     border-radius: 8px;
     margin-bottom: 4px;
     cursor: pointer;
@@ -585,13 +573,13 @@ body.theme-light .function-title {
 
 .collapsible-container {
     border-radius: 10px;
-    border: 1px solid rgba(148, 163, 184, 0.4);
-    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid var(--border-subtle);
+    background-color: var(--bg-elevated-soft);
     overflow: hidden;
 }
 
 body.theme-light .collapsible-container {
-    background: #f9fafb;
+    background-color: #f9fafb;
 }
 
 .collapsible-header {
@@ -599,7 +587,7 @@ body.theme-light .collapsible-container {
     border: none;
     outline: none;
     padding: 8px 10px;
-    background: #1e293b;
+    background-color: var(--bg-elevated);
     color: var(--text);
     display: flex;
     align-items: center;
@@ -610,12 +598,12 @@ body.theme-light .collapsible-container {
 }
 
 body.theme-light .collapsible-header {
-    background: #e5e7eb;
+    background-color: #e5e7eb;
     color: #111827;
 }
 
 .collapsible-header:hover {
-    filter: brightness(1.08);
+    filter: brightness(1.04);
 }
 
 .collapsible-content {
@@ -638,7 +626,7 @@ body.theme-light .collapsible-header {
 .sidebar-upload {
     margin-top: auto;
     padding-top: 10px;
-    border-top: 1px dashed rgba(148, 163, 184, 0.5);
+    border-top: 1px dashed var(--border-subtle);
 }
 
 .file-input-label {
@@ -647,8 +635,8 @@ body.theme-light .collapsible-header {
     gap: 8px;
     padding: 7px 12px;
     border-radius: var(--radius-full);
-    border: 1px dashed rgba(148, 163, 184, 0.7);
-    background: rgba(15, 23, 42, 0.6);
+    border: 1px dashed var(--border-subtle);
+    background-color: var(--bg-elevated-soft);
     color: var(--text-soft);
     font-size: 13px;
     cursor: pointer;
@@ -656,7 +644,7 @@ body.theme-light .collapsible-header {
 }
 
 body.theme-light .file-input-label {
-    background: #ffffff;
+    background-color: #ffffff;
 }
 
 .file-input-label input[type="file"] {
@@ -670,15 +658,11 @@ body.theme-light .file-input-label {
 }
 
 /* ================================
-   Utility
+   Utility / Legacy Hooks
 =================================== */
 
 .container {
     /* kept for backwards compatibility, not used in new layout */
-}
-
-#sidebar {
-    /* maintain original ID hook whilst using new .sidebar styles */
 }
 
 #sidebar h2 {
@@ -708,7 +692,7 @@ body.theme-light .file-input-label {
 
     .card-panel {
         padding: 16px 14px 18px;
-        border-radius: 20px;
+        border-radius: 18px;
     }
 
     .card-panel-header {
