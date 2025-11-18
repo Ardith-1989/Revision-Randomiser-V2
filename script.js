@@ -55,7 +55,7 @@ function closeSidebar() {
     toggleSidebar(false);
 }
 
-// Make available to inline handlers
+// Expose for inline handlers
 window.toggleSidebar = toggleSidebar;
 window.closeSidebar = closeSidebar;
 
@@ -72,6 +72,8 @@ function renderContentSelection() {
         const block = buildCategoryBlock(name, value, 'content');
         root.appendChild(block);
     });
+
+    updateSelectAllContent();
 }
 
 function renderFunctionSelection() {
@@ -125,6 +127,8 @@ function buildCategoryBlock(name, value, type) {
         });
         if (type === 'function') {
             updateSelectAllFunctions();
+        } else {
+            updateSelectAllContent();
         }
     });
 
@@ -136,8 +140,13 @@ function buildCategoryBlock(name, value, type) {
             cb.type = 'checkbox';
             cb.value = item;
             cb.className = type === 'content' ? 'content-checkbox' : 'function-checkbox';
+
             cb.addEventListener('change', () => {
-                if (type === 'function') updateSelectAllFunctions();
+                if (type === 'function') {
+                    updateSelectAllFunctions();
+                } else {
+                    updateSelectAllContent();
+                }
             });
 
             label.appendChild(cb);
@@ -157,7 +166,7 @@ function buildCategoryBlock(name, value, type) {
 }
 
 // ===============================
-// Function "select all" logic
+// "Select all" logic – instruction cards
 // ===============================
 
 function updateSelectAllFunctions() {
@@ -176,6 +185,45 @@ function attachSelectAllFunctionsHandler() {
             cb.checked = checked;
         });
     });
+}
+
+// ===============================
+// "Select all" / "Clear all" – content cards
+// ===============================
+
+function updateSelectAllContent() {
+    const selectAll = document.getElementById('selectAllContent');
+    if (!selectAll) return;
+
+    const leaves = Array.from(document.querySelectorAll('.content-checkbox'));
+    if (leaves.length === 0) {
+        selectAll.checked = false;
+        return;
+    }
+    selectAll.checked = leaves.every(cb => cb.checked);
+}
+
+function attachContentControls() {
+    const selectAll = document.getElementById('selectAllContent');
+    const clearBtn = document.getElementById('clearContentSelections');
+
+    if (selectAll) {
+        selectAll.addEventListener('change', () => {
+            const checked = selectAll.checked;
+            document.querySelectorAll('.content-checkbox, .category-checkbox').forEach(cb => {
+                cb.checked = checked;
+            });
+        });
+    }
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            document.querySelectorAll('.content-checkbox, .category-checkbox').forEach(cb => {
+                cb.checked = false;
+            });
+            if (selectAll) selectAll.checked = false;
+        });
+    }
 }
 
 // ===============================
@@ -341,7 +389,7 @@ function downloadExcelTemplate() {
     XLSX.writeFile(workbook, 'Flashcard_Template.xlsx');
 }
 
-// Make upload/template available to inline handlers
+// Expose upload/template for inline handlers
 window.handleExcelUpload = handleExcelUpload;
 window.downloadExcelTemplate = downloadExcelTemplate;
 
@@ -351,7 +399,9 @@ window.downloadExcelTemplate = downloadExcelTemplate;
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadCardData();
+
     attachSelectAllFunctionsHandler();
+    attachContentControls();
 
     const contentCard = document.getElementById('content-card');
     const functionCard = document.getElementById('function-card');
