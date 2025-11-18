@@ -1,6 +1,5 @@
 /* ================================
-   Base & Theme
-   (Flat colours, no gradients)
+   Base & Theme (flat colours)
 =================================== */
 
 :root {
@@ -11,14 +10,14 @@
     --bg-sidebar: #020617;
     --border-subtle: rgba(148, 163, 184, 0.35);
     --accent: #38bdf8;
-    --accent-soft: rgba(56, 189, 248, 0.15);
+    --accent-soft: rgba(56, 189, 248, 0.12);
     --accent-strong: #0ea5e9;
     --accent-contrast: #020617;
     --text: #e5e7eb;
     --text-soft: #9ca3af;
     --text-softer: #6b7280;
     --danger: #f97373;
-    --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.7);
+    --shadow-soft: 0 4px 14px rgba(15, 23, 42, 0.6);
     --radius-lg: 18px;
     --radius-xl: 24px;
     --radius-full: 999px;
@@ -38,7 +37,7 @@ body.theme-light {
     --text: #111827;
     --text-soft: #4b5563;
     --text-softer: #6b7280;
-    --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.14);
+    --shadow-soft: 0 4px 12px rgba(15, 23, 42, 0.16);
 }
 
 /* ================================
@@ -97,8 +96,8 @@ body {
 }
 
 .app-logo-circle {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-full);
     background-color: var(--accent);
     display: flex;
@@ -106,8 +105,8 @@ body {
     justify-content: center;
     color: #ecfeff;
     font-weight: 700;
-    font-size: 20px;
-    box-shadow: 0 8px 18px rgba(56, 189, 248, 0.45);
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(56, 189, 248, 0.45);
 }
 
 .app-title-group {
@@ -163,7 +162,7 @@ body.theme-light .icon-button {
     background-color: var(--bg-elevated);
     border-color: var(--accent);
     color: var(--text);
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.5);
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.4);
     transform: translateY(-1px);
 }
 
@@ -185,7 +184,7 @@ body.theme-light .icon-button {
     cursor: pointer;
     background-color: var(--accent);
     color: white;
-    box-shadow: 0 14px 30px rgba(56, 189, 248, 0.45);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -198,12 +197,12 @@ body.theme-light .icon-button {
 .primary-button:hover {
     filter: brightness(1.05);
     transform: translateY(-1px);
-    box-shadow: 0 16px 34px rgba(56, 189, 248, 0.5);
+    box-shadow: 0 6px 14px rgba(56, 189, 248, 0.45);
 }
 
 .primary-button:active {
     transform: translateY(0);
-    box-shadow: 0 10px 24px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.35);
 }
 
 .secondary-button {
@@ -232,7 +231,7 @@ body.theme-light .secondary-button {
 .secondary-button:hover {
     background-color: var(--bg-elevated);
     border-color: var(--accent);
-    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.55);
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.35);
     transform: translateY(-1px);
 }
 
@@ -285,7 +284,7 @@ body.theme-light .secondary-button {
     width: 100%;
     max-width: 880px;
     background-color: var(--bg-elevated);
-    border-radius: 24px;
+    border-radius: 22px;
     padding: 20px 20px 22px;
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-soft);
@@ -321,31 +320,6 @@ body.theme-light .card-panel {
     color: var(--text-soft);
 }
 
-/* Toggle options near top right */
-
-.toggle-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 12px;
-    justify-content: flex-end;
-}
-
-.toggle-option {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--text-soft);
-    padding: 4px 8px;
-    border-radius: var(--radius-full);
-    background-color: var(--bg-elevated-soft);
-    border: 1px solid var(--border-subtle);
-}
-
-body.theme-light .toggle-option {
-    background-color: #ffffff;
-}
-
 /* Flashcards */
 
 .flashcard-container {
@@ -359,11 +333,11 @@ body.theme-light .toggle-option {
 
 .flashcard {
     position: relative;
-    border-radius: 20px;
+    border-radius: 18px;
     padding: 18px 18px;
     background-color: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.75);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.55);
     color: var(--text);
     font-size: 16px;
     font-weight: 600;
@@ -382,18 +356,18 @@ body.theme-light .toggle-option {
 
 body.theme-light .flashcard {
     background-color: #ffffff;
-    box-shadow: 0 14px 26px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.12);
 }
 
 .flashcard:hover {
-    transform: translateY(-1px) scale(1.01);
-    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.8);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.7);
     border-color: var(--accent);
 }
 
 .flashcard:active {
-    transform: translateY(0) scale(0.995);
-    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.6);
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.5);
 }
 
 .flashcard:focus-visible {
@@ -448,7 +422,7 @@ body.theme-light .flashcard {
     height: 100%;
     background-color: var(--bg-sidebar);
     border-left: 1px solid var(--border-subtle);
-    box-shadow: -16px 0 30px rgba(15, 23, 42, 0.8);
+    box-shadow: -4px 0 14px rgba(15, 23, 42, 0.7);
     padding: 16px 16px 22px;
     display: flex;
     flex-direction: column;
