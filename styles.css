@@ -80,7 +80,7 @@ body {
 .app-header {
     position: sticky;
     top: 0;
-    z-index: 20;
+    z-index: 40;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -404,16 +404,11 @@ body.theme-light .flashcard {
     width: min(360px, 100%);
     transform: translateX(100%);
     transition: transform 0.26s ease;
-    z-index: 30;
+    z-index: 50;
     pointer-events: none;
 }
 
 .sidebar.open {
-    transform: translateX(0%);
-    pointer-events: auto;
-}
-
-#sidebar.open {
     transform: translateX(0%);
     pointer-events: auto;
 }
@@ -427,7 +422,7 @@ body.theme-light .flashcard {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    overflow: hidden;
+    overflow-y: auto; /* allow full scroll including upload area */
 }
 
 .sidebar-header {
@@ -454,17 +449,43 @@ body.theme-light .flashcard {
     margin: 0;
 }
 
+/* Backdrop for click-outside-to-close */
+
+.sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    display: none;
+    z-index: 45;
+}
+
+/* Sidebar sections */
+
 .sidebar-section {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: 100%;
 }
 
 .sidebar-section-title {
     margin: 4px 0 0;
     font-size: 14px;
     font-weight: 600;
+    color: var(--text-soft);
+}
+
+.sidebar-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.inline-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
     color: var(--text-soft);
 }
 
@@ -477,9 +498,9 @@ body.theme-light .flashcard {
 /* Scroll area for selections */
 
 .selection-scroll {
-    max-height: 260px;
-    overflow: auto;
-    padding-right: 4px;
+    /* allow the whole sidebar to scroll rather than internal scrollboxes */
+    max-height: none;
+    overflow: visible;
 }
 
 /* ================================
@@ -543,62 +564,12 @@ body.theme-light .function-title {
     color: var(--text-soft);
 }
 
-/* Collapsible group in sidebar */
-
-.collapsible-container {
-    border-radius: 10px;
-    border: 1px solid var(--border-subtle);
-    background-color: var(--bg-elevated-soft);
-    overflow: hidden;
-}
-
-body.theme-light .collapsible-container {
-    background-color: #f9fafb;
-}
-
-.collapsible-header {
-    width: 100%;
-    border: none;
-    outline: none;
-    padding: 8px 10px;
-    background-color: var(--bg-elevated);
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    font-size: 13px;
-    text-align: left;
-}
-
-body.theme-light .collapsible-header {
-    background-color: #e5e7eb;
-    color: #111827;
-}
-
-.collapsible-header:hover {
-    filter: brightness(1.04);
-}
-
-.collapsible-content {
-    display: none;
-    padding: 8px 8px 10px;
-    max-height: 260px;
-    overflow: auto;
-}
-
-.collapsible-chevron {
-    margin-left: auto;
-    font-size: 11px;
-    opacity: 0.7;
-}
-
 /* ================================
    Upload Area
 =================================== */
 
 .sidebar-upload {
-    margin-top: auto;
+    margin-top: 4px;
     padding-top: 10px;
     border-top: 1px dashed var(--border-subtle);
 }
@@ -629,18 +600,6 @@ body.theme-light .file-input-label {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-}
-
-/* ================================
-   Utility / Legacy Hooks
-=================================== */
-
-.container {
-    /* kept for backwards compatibility, not used in new layout */
-}
-
-#sidebar h2 {
-    margin: 0;
 }
 
 /* ================================
