@@ -17,15 +17,10 @@
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="manifest.json">
-
-    <!-- Optional: modern font similar to MCQ app -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="theme-light">
     <div class="app-shell">
-        <!-- Header / Top Bar -->
+        <!-- Header Bar -->
         <header class="app-header">
             <div class="header-left">
                 <div class="app-logo-circle">R</div>
@@ -106,7 +101,7 @@
                     <button
                         class="icon-button close-btn"
                         type="button"
-                        onclick="toggleSidebar()"
+                        onclick="closeSidebar()"
                         aria-label="Close card selection"
                     >
                         ✕
@@ -121,25 +116,20 @@
                     </div>
                 </section>
 
-                <!-- Function Card Selection (Collapsible) -->
+                <!-- Instruction Card Selection -->
                 <section class="sidebar-section">
-                    <div class="collapsible-container">
-                        <button
-                            type="button"
-                            class="collapsible-header"
-                            onclick="toggleFunctionSelection(event)"
-                        >
+                    <div class="sidebar-section-header">
+                        <h3 class="sidebar-section-title">Instruction cards</h3>
+                        <label class="inline-checkbox">
                             <input
                                 type="checkbox"
                                 id="selectAllFunctions"
-                                onchange="toggleAllFunctionCards(event)"
                             />
-                            <span><strong>All instruction cards</strong></span>
-                            <span class="collapsible-chevron">▾</span>
-                        </button>
-                        <div id="functionSelection" class="collapsible-content">
-                            <!-- Dynamically loaded function categories -->
-                        </div>
+                            <span>Select all</span>
+                        </label>
+                    </div>
+                    <div id="functionSelection" class="selection-scroll">
+                        <!-- Dynamically loaded function categories -->
                     </div>
                 </section>
 
@@ -178,6 +168,9 @@
                 </section>
             </div>
         </aside>
+
+        <!-- Backdrop for click-outside-to-close -->
+        <div id="sidebar-backdrop" class="sidebar-backdrop" onclick="closeSidebar()"></div>
     </div>
 
     <!-- Libraries & Script -->
