@@ -110,7 +110,25 @@
 
                 <!-- Content Card Selection -->
                 <section class="sidebar-section">
-                    <h3 class="sidebar-section-title">Content cards</h3>
+                    <div class="sidebar-section-header">
+                        <h3 class="sidebar-section-title">Content cards</h3>
+                        <div class="sidebar-section-controls">
+                            <label class="inline-checkbox">
+                                <input
+                                    type="checkbox"
+                                    id="selectAllContent"
+                                />
+                                <span>Select all</span>
+                            </label>
+                            <button
+                                type="button"
+                                class="link-button"
+                                id="clearContentSelections"
+                            >
+                                Clear all
+                            </button>
+                        </div>
+                    </div>
                     <div id="groupSelection" class="selection-scroll">
                         <!-- Populated dynamically -->
                     </div>
