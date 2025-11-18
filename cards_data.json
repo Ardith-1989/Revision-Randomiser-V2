@@ -508,6 +508,13 @@
             "Create a visual organiser of this",
             "Explain this using only words a 10 year old would understand", 
             "Create 5 quiz questions about this topic"
+        ],
+        "People": [
+            "What was this figure's most important action",
+            "List the three most important facts about this figure",
+            "Name 3 sources that tell us about this figure",
+            "List three key relationships this figure had",
+            "What was the impact of this figure on the time period"
         ]
     }
 }
