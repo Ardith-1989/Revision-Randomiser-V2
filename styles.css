@@ -264,6 +264,24 @@ body.theme-light .secondary-button {
     color: var(--accent-strong);
 }
 
+/* Link-style button for "Clear all" */
+
+.link-button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-softer);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.link-button:hover {
+    color: var(--accent-strong);
+}
+
 /* ================================
    Main Layout
 =================================== */
@@ -422,7 +440,7 @@ body.theme-light .flashcard {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    overflow-y: auto; /* allow full scroll including upload area */
+    overflow-y: auto;
 }
 
 .sidebar-header {
@@ -481,6 +499,12 @@ body.theme-light .flashcard {
     gap: 8px;
 }
 
+.sidebar-section-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .inline-checkbox {
     display: inline-flex;
     align-items: center;
@@ -498,7 +522,6 @@ body.theme-light .flashcard {
 /* Scroll area for selections */
 
 .selection-scroll {
-    /* allow the whole sidebar to scroll rather than internal scrollboxes */
     max-height: none;
     overflow: visible;
 }
